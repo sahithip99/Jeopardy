@@ -1,3 +1,18 @@
 page-home {
+    ion-content {
+        ion-grid {
+            ion-card { 
+                height: 10vh;
+                
+            }
+
+        }
+        
+    }
+
+    .card-button {
+        height: 100%;
+        width: 100%;
+    }
 
 }
