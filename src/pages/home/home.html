@@ -19,11 +19,17 @@
     </ion-row>
     <ion-row *ngFor="let price of prices">
         <ion-col col-2 *ngFor="let category of categories">
-          <ion-card class="animated fadeInDown slow">
+          <!-- <ion-card class="animated fadeInDown slow">
               <button ion-button clear class="card-button">
                 {{price}}
               </button>
-          </ion-card>
+          </ion-card> -->
+          <flash-card>
+            <!-- <div class="flash-card-front card-container">
+            </div>
+               -->
+            
+          </flash-card>
           </ion-col>
     </ion-row>
 
