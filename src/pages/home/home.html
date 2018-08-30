@@ -1,35 +1,38 @@
 <ion-header no-border ></ion-header>
- <ion-content padding>
+ <ion-content padding class="aligner">
     <div class="company-logo-container" >
         <div>
-          <img class= "company-header" src="./assets/imgs/jeopardy_logo.png"/>
+          <img class= "company-header" src="./assets/imgs/transparent_jeopardy.png"/>
         </div>
         <p class="right-triangle"></p>
       </div>
 
-      <ion-grid>
-        <ion-row >
-          <ion-col col-2 *ngFor="let category of categories">
-            {{category}}
-          </ion-col>
-        </ion-row>
-        <ion-row *ngFor="let price of prices">
+      <div class="container-ion-grid">
+        <ion-grid>
+          <ion-row >
             <ion-col col-2 *ngFor="let category of categories">
-              <!-- <ion-card class="animated fadeInDown slow">
-                  <button ion-button clear class="card-button">
-                    {{price}}
-                  </button>
-              </ion-card> -->
-              <flash-card>
-                <!-- <div class="flash-card-front card-container">
-                </div>
-                   -->
-                
-              </flash-card>
-              </ion-col>
-        </ion-row>
-    
-        
-      </ion-grid>
+              {{category}}
+            </ion-col>
+          </ion-row>
+          <ion-row *ngFor="let price of prices">
+              <ion-col col-2 *ngFor="let category of categories">
+                <!-- <ion-card class="animated fadeInDown slow">
+                    <button ion-button clear class="card-button">
+                      {{price}}
+                    </button>
+                </ion-card> -->
+                <flash-card class="flash-card">
+                  <!-- <div class="flash-card-front card-container">
+                  </div>
+                     -->
+                  
+                </flash-card>
+                </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </div>
+
+
  
 </ion-content>
