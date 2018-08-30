@@ -1,0 +1,18 @@
+<div class="flip-container" (click)="flip()" [class.flipped]="flipped">
+ 
+    <div class="flipper">
+ 
+        <div class="front">
+            <ng-content select=".flash-card-front">
+            </ng-content>
+            <button ion-button clear class="front-button">Yo</button>
+        </div>
+ 
+        <div class="back">
+            <ng-content select=".flash-card-back">
+            </ng-content>
+        </div>
+ 
+    </div>
+ 
+</div>

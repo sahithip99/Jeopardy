@@ -7,8 +7,13 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  categories: string[] = []
+  prices: string[] = []
 
+
+  constructor(public navCtrl: NavController) {
+    this.categories = ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5']
+    this.prices = ['$100', '$200', '$300', '$400', '$500']
   }
 
 }

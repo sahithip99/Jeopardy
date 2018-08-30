@@ -6,5 +6,30 @@
         </div>
         <p class="right-triangle"></p>
       </div>
+
+      <ion-grid>
+        <ion-row >
+          <ion-col col-2 *ngFor="let category of categories">
+            {{category}}
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let price of prices">
+            <ion-col col-2 *ngFor="let category of categories">
+              <!-- <ion-card class="animated fadeInDown slow">
+                  <button ion-button clear class="card-button">
+                    {{price}}
+                  </button>
+              </ion-card> -->
+              <flash-card>
+                <!-- <div class="flash-card-front card-container">
+                </div>
+                   -->
+                
+              </flash-card>
+              </ion-col>
+        </ion-row>
+    
+        
+      </ion-grid>
  
 </ion-content>
