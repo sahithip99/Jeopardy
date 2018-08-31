@@ -11,7 +11,15 @@
         <ion-grid>
           <ion-row >
             <ion-col col-2 *ngFor="let category of categories">
-              {{category}}
+              <flash-card>
+                <div class="flash-card-front">
+                    {{category}}
+                </div>
+                <div class="flash-card-back">
+                  {{category}}
+                </div>
+              </flash-card>
+          
             </ion-col>
           </ion-row>
           <ion-row *ngFor="let price of prices">
