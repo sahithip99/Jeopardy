@@ -9,12 +9,12 @@
 
       <ion-grid>
         <ion-row >
-          <ion-col col-2 *ngFor="let category of categories">
+          <ion-col *ngFor="let category of categories">
             {{category}}
           </ion-col>
         </ion-row>
         <ion-row *ngFor="let price of prices; let priceIndex = index">
-            <ion-col col-2 *ngFor="let category of categories; let catIndex = index; ">
+            <ion-col *ngFor="let category of categories; let catIndex = index; ">
                 <flash-card class="flash-card" (click)="goToModal(shuffledPrompts[catIndex][priceIndex])">
                   <div class="flash-card-front">
                     {{price}}
