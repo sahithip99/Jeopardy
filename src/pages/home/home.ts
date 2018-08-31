@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { QuestionsProvider } from '../../providers/questions/questions';
 import { Prompt } from '../../providers/questions/prompt';
+import { QuestionModal } from '../../modals/question-modal/question-modal';
 
 @Component({
   selector: 'page-home',
@@ -11,22 +12,30 @@ export class HomePage {
 
   categories: string[] = []
   prices: string[] = []
+  shuffledPrompts: Prompt[][] = []
 
 
   constructor(
     public navCtrl: NavController,
-    public questionsPvdr: QuestionsProvider
+    public questionsPvdr: QuestionsProvider,
+    public modalCtrl: ModalController,
   ) {
 
     this.loadCategories();
-    this.prices = ['$100', '$200', '$300', '$400', '$500']
+
+    this.prices = ['$100', '$200', '$300', '$400']
+
+    //TODO: change prices back to $500 once we have more questions
+    // this.prices = ['$100', '$200', '$300', '$400', '$500']
+    
   }
 
   loadCategories() {
     this.questionsPvdr.getCategories().then((categories: Array<string>) => {
       this.categories = categories;
       this.loadPrompts(this.categories).then(shuffled => {
-        console.log('shuffled', shuffled)
+        this.shuffledPrompts = shuffled;
+        console.log('this.shuffledPrompts', this.shuffledPrompts)
       })
     })
   }
@@ -47,6 +56,11 @@ export class HomePage {
     return prompts
 
   
+  }
+
+  goToModal(prompt: Prompt) {
+    let modal = this.modalCtrl.create(QuestionModal, {prompt: prompt})
+    modal.present();
   }
 
   // getPrompt(catIndex: number) {

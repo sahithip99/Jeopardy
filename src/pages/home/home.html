@@ -1,11 +1,11 @@
 <ion-header no-border ></ion-header>
- <ion-content padding>
+ <ion-content padding class="aligner">
     <div class="company-logo-container" >
         <div>
-          <img class= "company-header" src="./assets/imgs/jeopardy_logo.png"/>
+          <img class= "company-header" src="./assets/imgs/transparent_jeopardy.png"/>
         </div>
         <p class="right-triangle"></p>
-      </div>
+    </div>
 
       <ion-grid>
         <ion-row >
@@ -13,23 +13,23 @@
             {{category}}
           </ion-col>
         </ion-row>
-        <ion-row *ngFor="let price of prices">
-            <ion-col col-2 *ngFor="let category of categories; let catIndex = index">
-              <!-- <ion-card class="animated fadeInDown slow">
-                  <button ion-button clear class="card-button">
+        <ion-row *ngFor="let price of prices; let priceIndex = index">
+            <ion-col col-2 *ngFor="let category of categories; let catIndex = index; ">
+                <flash-card class="flash-card" (click)="goToModal(shuffledPrompts[catIndex][priceIndex])">
+                  <div class="flash-card-front">
                     {{price}}
-                  </button>
-              </ion-card> -->
-              <flash-card (click)="getPrompt(catIndex)">
-                <!-- <div class="flash-card-front card-container">
-                </div>
-                   -->
-                
-              </flash-card>
-              </ion-col>
-        </ion-row>
-    
-        
-      </ion-grid>
+                  </div>
+                  <div class="flash-card-back">
+                    <div *ngIf="shuffledPrompts.length > 0">
+                      {{shuffledPrompts[catIndex][priceIndex].answer}}
+                    </div>
+                  </div>             
+                </flash-card>
+                </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+
  
 </ion-content>

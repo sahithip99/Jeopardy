@@ -10,11 +10,14 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { QuestionsProvider } from '../providers/questions/questions';
 
+import { QuestionModal } from '../modals/question-modal/question-modal';
+
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    FlashCardComponent
+    FlashCardComponent,
+    QuestionModal,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +27,8 @@ import { QuestionsProvider } from '../providers/questions/questions';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    QuestionModal,
   ],
   providers: [
     StatusBar,

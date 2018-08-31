@@ -2,6 +2,7 @@
     
  
     flash-card {
+        
  
         /*
          *  Flip animation by David Walsh: https://davidwalsh.name/css-flip
@@ -21,6 +22,7 @@
             width: 100%;
             height: 10vh;
             margin: 20px auto;
+            
         }
  
         /* flip speed goes here */
@@ -36,16 +38,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #ecf0f1;
+            
             backface-visibility: hidden;
             -webkit-box-shadow: 0px 8px 4px -4px rgba(163,163,163,0.25);
             -moz-box-shadow: 0px 8px 4px -4px rgba(163,163,163,0.25);
-            box-shadow: 0px 8px 4px -4px rgba(163,163,163,0.25);
-            border: 1px solid #dee2e3;
+          
+            border: 2px solid #FFff;
             margin: 0;
             position: absolute;
             top: 0;
             left: 0;
+            background: linear-gradient(to bottom, #3333ff 0%, #00010a 100%);
+          
         }
  
         /* front pane, placed above back */
