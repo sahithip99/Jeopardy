@@ -15,7 +15,7 @@
         </ion-row>
         <ion-row *ngFor="let price of prices; let priceIndex = index">
             <ion-col *ngFor="let category of categories; let catIndex = index; ">
-                <flash-card class="flash-card" (click)="goToModal(shuffledPrompts[catIndex][priceIndex])">
+                <flash-card class="flash-card" (click)="goToModal(shuffledPrompts[catIndex][priceIndex])" [catIndex]="catIndex">
                   <div class="flash-card-front">
                     {{price}}
                   </div>
