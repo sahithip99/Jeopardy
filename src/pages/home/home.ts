@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
+import { QuestionsProvider } from '../../providers/questions/questions';
+import { Prompt } from '../../providers/questions/prompt';
+import { QuestionModal } from '../../modals/question-modal/question-modal';
 
 @Component({
   selector: 'page-home',
@@ -9,11 +12,58 @@ export class HomePage {
 
   categories: string[] = []
   prices: string[] = []
+  shuffledPrompts: Prompt[][] = []
 
 
-  constructor(public navCtrl: NavController) {
-    this.categories = ['Category 1', 'Category 2', 'Category 3', 'Category 4', 'Category 5', 'Category 6']
-    this.prices = ['$100', '$200', '$300', '$400', '$500']
+  constructor(
+    public navCtrl: NavController,
+    public questionsPvdr: QuestionsProvider,
+    public modalCtrl: ModalController,
+  ) {
+
+    this.loadCategories();
+
+    this.prices = ['$100', '$200', '$300', '$400']
+
+    //TODO: change prices back to $500 once we have more questions
+    // this.prices = ['$100', '$200', '$300', '$400', '$500']
+    
   }
 
+  loadCategories() {
+    this.questionsPvdr.getCategories().then((categories: Array<string>) => {
+      this.categories = categories;
+      this.loadPrompts(this.categories).then(shuffled => {
+        this.shuffledPrompts = shuffled;
+        console.log('this.shuffledPrompts', this.shuffledPrompts)
+      })
+    })
+  }
+
+  async loadPrompts(categories: Array<string>): Promise<Prompt[][]> {
+    let prompts: Prompt[][] = []
+
+    for (let i = 0; i < categories.length; i++) {
+      let arr: Array<Prompt> = []
+      await this.questionsPvdr.getAnswersAndQuestions(categories, i)
+        .then((unshuffled: Array<Prompt>) => {
+          let shuffled = this.questionsPvdr.shuffleArray(unshuffled)
+          prompts.push(shuffled)
+        })
+      
+    }
+
+    return prompts
+
+  
+  }
+
+  goToModal(prompt: Prompt) {
+    let modal = this.modalCtrl.create(QuestionModal, {prompt: prompt})
+    modal.present();
+  }
+
+  // getPrompt(catIndex: number) {
+  //   this.questionsPvdr.getAnswersAndQuestions(catIndex).then(arr => console.log('arr', arr))
+  // }
 }

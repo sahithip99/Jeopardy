@@ -5,46 +5,30 @@
           <img class= "company-header" src="./assets/imgs/transparent_jeopardy.png"/>
         </div>
         <p class="right-triangle"></p>
-      </div>
+    </div>
 
-      <div class="container-ion-grid">
-        <ion-grid>
-          <ion-row >
-            <ion-col col-2 *ngFor="let category of categories">
-              <flash-card>
-                <div class="flash-card-front">
-                    {{category}}
-                </div>
-                <div class="flash-card-back">
-                  {{category}}
-                </div>
-              </flash-card>
-          
-            </ion-col>
-          </ion-row>
-          <ion-row *ngFor="let price of prices">
-              <ion-col col-2 *ngFor="let category of categories">
-                <!-- <ion-card class="animated fadeInDown slow">
-                    <button ion-button clear class="card-button">
-                      {{price}}
-                    </button>
-                </ion-card> -->
-                <div class="animated fadeIn delay-5s">
-                    <flash-card>
-                        <!-- <div class="flash-card-front card-container">
-                        </div>
-                           -->
-                        
-                      </flash-card>
-
-
-                </div>
-               
+      <ion-grid>
+        <ion-row >
+          <ion-col *ngFor="let category of categories">
+            {{category}}
+          </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let price of prices; let priceIndex = index">
+            <ion-col *ngFor="let category of categories; let catIndex = index; ">
+                <flash-card class="flash-card" (click)="goToModal(shuffledPrompts[catIndex][priceIndex])">
+                  <div class="flash-card-front">
+                    {{price}}
+                  </div>
+                  <div class="flash-card-back">
+                    <div *ngIf="shuffledPrompts.length > 0">
+                      {{shuffledPrompts[catIndex][priceIndex].answer}}
+                    </div>
+                  </div>             
+                </flash-card>
                 </ion-col>
           </ion-row>
         </ion-grid>
 
-      </div>
 
 
  
