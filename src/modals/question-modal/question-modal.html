@@ -5,4 +5,7 @@
 <ion-content class="noScroll">
     <p>{{prompt.answer}}</p>
     <!-- <p>{{prompt.question}}</p> -->
+    <button ion-button class="join-action-button" (click)="presentJoinActionSheet($event)">
+            <ion-icon color="secondary" name="arrow-round-forward"></ion-icon>
+    </button>
 </ion-content>
