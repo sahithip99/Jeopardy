@@ -9,12 +9,18 @@ import { Prompt } from '../../providers/questions/prompt';
 
 export class QuestionModal {
     prompt: Prompt;
+
     constructor(
-        viewCtrl: ViewController,
-        params: NavParams,
+        public viewCtrl: ViewController,
+        public params: NavParams,
     ) {
         this.prompt = params.get('prompt')
         console.log("got the prompt", this.prompt)
+
+    }
+
+    dismiss() {
+        this.viewCtrl.dismiss();
     }
 }
 
