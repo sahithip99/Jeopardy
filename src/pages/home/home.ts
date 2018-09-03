@@ -12,7 +12,7 @@ export class HomePage {
 
   categories: string[] = []
   prices: string[] = []
-  colors: string[] = []
+  colors: string[] = ['#cfa4f3fa', 'red', 'green', 'orange', 'blue']
   shuffledPrompts: Prompt[][] = []
   
 
@@ -68,8 +68,12 @@ export class HomePage {
   }
 
   goToModal(prompt: Prompt) {
-    let modal = this.modalCtrl.create(QuestionModal, {prompt: prompt})
-    modal.present();
+    setTimeout(() => {
+      let modal = this.modalCtrl.create(QuestionModal, {prompt: prompt}, {
+        // enterAnimation: 'animated '
+      })
+      modal.present();
+    }, 400)
   }
 
   // getPrompt(catIndex: number) {

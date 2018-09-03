@@ -11,7 +11,7 @@
       <ion-grid>
         <ion-row >
           <ion-col *ngFor="let category of categories; let i = index">
-            <div class="categoryName"[style.color]="colors[i]">
+            <div class="categoryName" [style.color]="colors[i]" style="text-align: center">
               {{category}}
             </div>
           </ion-col>
