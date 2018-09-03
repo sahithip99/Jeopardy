@@ -9,8 +9,10 @@
 
       <ion-grid>
         <ion-row >
-          <ion-col class="categoryName"*ngFor="let category of categories">
-            {{category}}
+          <ion-col class="categoryName"*ngFor="let category of categories; let i = index">
+            <div [style.color]="colors[i]" style="text-align: center">
+              {{category}}
+            </div>
           </ion-col>
         </ion-row>
         <ion-row *ngFor="let price of prices; let priceIndex = index">
