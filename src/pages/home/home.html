@@ -1,5 +1,6 @@
 <ion-header no-border ></ion-header>
  <ion-content padding class="aligner">
+   <button ion-button class="go-back-button" (click)="refreshPage()">New Game</button>
     <div class="company-logo-container" >
         <div>
           <img class= "company-header" src="./assets/imgs/transparent_jeopardy.png"/>
@@ -9,8 +10,8 @@
 
       <ion-grid>
         <ion-row >
-          <ion-col class="categoryName"*ngFor="let category of categories; let i = index">
-            <div [style.color]="colors[i]" style="text-align: center">
+          <ion-col *ngFor="let category of categories; let i = index">
+            <div class="categoryName"[style.color]="colors[i]">
               {{category}}
             </div>
           </ion-col>

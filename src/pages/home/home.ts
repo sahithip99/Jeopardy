@@ -3,7 +3,7 @@ import { NavController, ModalController } from 'ionic-angular';
 import { QuestionsProvider } from '../../providers/questions/questions';
 import { Prompt } from '../../providers/questions/prompt';
 import { QuestionModal } from '../../modals/question-modal/question-modal';
-
+import { Location } from '@angular/common';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -12,7 +12,7 @@ export class HomePage {
 
   categories: string[] = []
   prices: string[] = []
-  colors: string[] = ['#cfa4f3fa', 'red', 'green', 'orange', 'blue']
+  colors: string[] = []
   shuffledPrompts: Prompt[][] = []
   
 
@@ -21,6 +21,7 @@ export class HomePage {
     public navCtrl: NavController,
     public questionsPvdr: QuestionsProvider,
     public modalCtrl: ModalController,
+    public location:Location,
   ) {
 
     this.loadCategories();
@@ -42,6 +43,11 @@ export class HomePage {
       })
     })
   }
+  refreshPage(){
+      window.location.reload();
+
+
+  }
 
   async loadPrompts(categories: Array<string>): Promise<Prompt[][]> {
     let prompts: Prompt[][] = []
@@ -62,13 +68,8 @@ export class HomePage {
   }
 
   goToModal(prompt: Prompt) {
-    setTimeout(() => {
-      let modal = this.modalCtrl.create(QuestionModal, {prompt: prompt}, {
-        // enterAnimation: 'animated '
-      })
-      modal.present();
-    }, 400)
-    
+    let modal = this.modalCtrl.create(QuestionModal, {prompt: prompt})
+    modal.present();
   }
 
   // getPrompt(catIndex: number) {
