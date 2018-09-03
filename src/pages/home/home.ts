@@ -62,8 +62,13 @@ export class HomePage {
   }
 
   goToModal(prompt: Prompt) {
-    let modal = this.modalCtrl.create(QuestionModal, {prompt: prompt})
-    modal.present();
+    setTimeout(() => {
+      let modal = this.modalCtrl.create(QuestionModal, {prompt: prompt}, {
+        // enterAnimation: 'animated '
+      })
+      modal.present();
+    }, 400)
+    
   }
 
   // getPrompt(catIndex: number) {

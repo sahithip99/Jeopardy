@@ -22,13 +22,7 @@ export class MyApp {
       splashScreen.hide();
     });
 
-    // questionsPvdr.loadQuestions().subscribe(cats => console.log('cats', cats))
-    // questionsPvdr.getAnswersAndQuestions(3).then(ans => {
-    //   console.log('ans', ans)
-    //   let firstPrompt = ans[0]
-    //   let parsed = questionsPvdr.parseAnswersAndQuestions(firstPrompt);
-    //   console.log(parsed)
-    // })
+   
 
   }
 
