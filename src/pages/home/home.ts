@@ -12,7 +12,9 @@ export class HomePage {
 
   categories: string[] = []
   prices: string[] = []
+  colors: string[] = []
   shuffledPrompts: Prompt[][] = []
+  
 
 
   constructor(
@@ -24,6 +26,7 @@ export class HomePage {
     this.loadCategories();
 
     this.prices = ['$100', '$200', '$300', '$400']
+  
 
     //TODO: change prices back to $500 once we have more questions
     // this.prices = ['$100', '$200', '$300', '$400', '$500']

@@ -9,13 +9,13 @@
 
       <ion-grid>
         <ion-row >
-          <ion-col *ngFor="let category of categories">
+          <ion-col class="categoryName"*ngFor="let category of categories">
             {{category}}
           </ion-col>
         </ion-row>
         <ion-row *ngFor="let price of prices; let priceIndex = index">
-            <ion-col *ngFor="let category of categories; let catIndex = index; ">
-                <flash-card class="flash-card" (click)="goToModal(shuffledPrompts[catIndex][priceIndex])">
+            <ion-col *ngFor="let category of categories; let catIndex = index">
+                <flash-card [catIndex]="catIndex" class="flash-card" (click)="goToModal(shuffledPrompts[catIndex][priceIndex])">
                   <div class="flash-card-front">
                     {{price}}
                   </div>
@@ -26,7 +26,7 @@
                     <img src="assets/imgs/SEAL_Logo_color.jpg" style="max-width: 50%">
                   </div>             
                 </flash-card>
-                </ion-col>
+            </ion-col>
           </ion-row>
         </ion-grid>
 

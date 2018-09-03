@@ -1,8 +1,7 @@
 <div class="flip-container" (click)="flip()" [class.flipped]="flipped">
- 
     <div class="flipper">
  
-        <div class="front">
+        <div class="front"  [style.box-shadow]="shadow" [style.color]="colors[catIndex]">
             <ng-content select=".flash-card-front">
             </ng-content>
             <!-- <button ion-button clear class="front-button">Yo</button> -->

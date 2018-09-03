@@ -1,8 +1,8 @@
-question-modal { 
-
-    .no-scroll .scroll-content{
+question-modal {
+    .noScroll .scroll-content{
         overflow: hidden;
    }
-   
-    
+   .noScroll{
+    border-radius: 18px;
+   }
 }
