@@ -9,7 +9,9 @@ import { Prompt } from '../../providers/questions/prompt';
 
 export class QuestionModal {
     prompt: Prompt;
-    answered: string = "animated bounceOutLeft";
+    answer_class: string = "";
+    question_class: string = "hidden"
+    answered: boolean = false
 
     constructor(
         public viewCtrl: ViewController,
@@ -25,8 +27,10 @@ export class QuestionModal {
     }
 
     toggleExit() {
-        if (this.answered) {
-            return "animated bounceOutExit"
-        }
+        this.answer_class = 'animated bounceOutLeft'
+        this.question_class = 'animated bounceInRight'
+        setTimeout(() => {
+            this.answered = true;
+        }, 500)
     }
 } 
