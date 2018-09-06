@@ -12,6 +12,8 @@ export class QuestionModal {
     answer_class: string = "";
     question_class: string = "hidden"
     answered: boolean = false
+    doesPromptContainImage: boolean = false;
+    imgSrc: string = "assets/questions/imgs/"
 
     constructor(
         public viewCtrl: ViewController,
@@ -19,6 +21,14 @@ export class QuestionModal {
     ) {
         this.prompt = params.get('prompt')
         console.log("got the prompt", this.prompt)
+
+        //Detect whether prompt contains image
+        let index1 = this.prompt.answer.indexOf("[")
+        let index2 = this.prompt.answer.indexOf("]")
+        if (index1 > -1 && index2 > -1) {
+            this.doesPromptContainImage = true;
+            this.imgSrc += this.prompt.answer.substring(index1+1, index2)
+        }
 
     }
 
