@@ -12,7 +12,7 @@ export class HomePage {
 
   categories: string[] = []
   prices: string[] = []
-  colors: string[] = ['#cfa4f3fa', 'red', 'green', 'orange', 'blue']
+  colors: string[] = ['#cfa4f3fa', 'red', 'green', 'orange', 'blue', '#9900cc']
   shuffledPrompts: Prompt[][] = []
   
 
