@@ -26,11 +26,11 @@ export class HomePage {
 
     this.loadCategories();
 
-    this.prices = ['$100', '$200', '$300', '$400']
+    // this.prices = ['$100', '$200', '$300', '$400']
   
 
     //TODO: change prices back to $500 once we have more questions
-    // this.prices = ['$100', '$200', '$300', '$400', '$500']
+    this.prices = ['$100', '$200', '$300', '$400', '$500']
     
   }
 
