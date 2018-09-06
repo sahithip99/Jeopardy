@@ -61,6 +61,7 @@ export class HomePage {
         })
       
     }
+    console.log('prompts', prompts)
 
     return prompts
 

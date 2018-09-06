@@ -4,11 +4,13 @@
 
 <ion-content class="noScroll">
     <div class="img-container">
-            <img [class]="answer_class" [src]="imgSrc" *ngIf="doesPromptContainImage && !answered">
+            <img [class]="answer_class" [src]="imgSrc" *ngIf="doesAnswerContainImage && !answered">
     </div>
     <div class="paragraph-container">
-            <p [class]="answer_class" *ngIf="!answered && !doesPromptContainImage">{{prompt.answer}}</p>
+            <p [class]="answer_class" *ngIf="!answered && !doesAnswerContainImage">{{prompt.answer}}</p>
             <p [class]="question_class" *ngIf="answered">{{prompt.question}} </p>
+            <img [class]="question_class" [src]="questionImgSrc" *ngIf="doesQuestionContainImage && answered">
+
             <!-- <p>{{prompt.question}}</p> -->
             <button ion-button class="join-action-button" (click)="toggleExit()" *ngIf="!answered">
                     <ion-icon color="secondary" name="arrow-round-forward"></ion-icon>

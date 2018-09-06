@@ -38,7 +38,7 @@ export class QuestionsProvider {
 
   /**
    * 
-   * @param index 0 to 4, corresponds to what category you want them to be in
+   * @param index 0 to 5, corresponds to what category you want them to be in
    */
   getAnswersAndQuestions(cats: Array<string>, index: number): Promise<Array<Prompt>> {
     let arr = []

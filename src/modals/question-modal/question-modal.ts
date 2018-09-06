@@ -12,8 +12,10 @@ export class QuestionModal {
     answer_class: string = "";
     question_class: string = "hidden"
     answered: boolean = false
-    doesPromptContainImage: boolean = false;
+    doesAnswerContainImage: boolean = false;
+    doesQuestionContainImage: boolean = false;
     imgSrc: string = "assets/questions/imgs/"
+    questionImgSrc: string = "assets/questions/imgs/"
 
     constructor(
         public viewCtrl: ViewController,
@@ -26,9 +28,19 @@ export class QuestionModal {
         let index1 = this.prompt.answer.indexOf("[")
         let index2 = this.prompt.answer.indexOf("]")
         if (index1 > -1 && index2 > -1) {
-            this.doesPromptContainImage = true;
+            this.doesAnswerContainImage = true;
             this.imgSrc += this.prompt.answer.substring(index1+1, index2)
         }
+
+        let index3 = this.prompt.question.indexOf("[")
+        let index4 = this.prompt.question.indexOf("]")
+        if (index3 > -1 && index4 > -1) {
+            this.doesQuestionContainImage = true;
+            this.questionImgSrc += this.prompt.question.substring(index3+1, index4)
+            console.log("questionImgSrc", this.questionImgSrc)
+            this.prompt.question = this.prompt.question.substring(0, index3)
+        }
+
 
     }
 
