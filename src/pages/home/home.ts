@@ -82,6 +82,8 @@ export class HomePage {
     }, 400)
   }
 
+
+  
   // getPrompt(catIndex: number) {
   //   this.questionsPvdr.getAnswersAndQuestions(catIndex).then(arr => console.log('arr', arr))
   // }
