@@ -26,14 +26,11 @@ export class HomePage {
 
     this.loadCategories();
 
-    // this.prices = ['$100', '$200', '$300', '$400']
-  
-
-    //TODO: change prices back to $500 once we have more questions
     this.prices = ['$100', '$200', '$300', '$400', '$500']
     
   }
 
+  /**Load the categories for the questions */
   loadCategories() {
     this.questionsPvdr.getCategories().then((categories: Array<string>) => {
       this.categories = categories;
@@ -43,6 +40,8 @@ export class HomePage {
       })
     })
   }
+
+  /** Refresh the page */
   refreshPage(){
       window.location.reload();
 
