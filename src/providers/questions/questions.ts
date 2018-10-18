@@ -2,16 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Prompt } from "./prompt";
-/*
-  Generated class for the QuestionsProvider provider.
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
+
 @Injectable()
 export class QuestionsProvider {
 
-
+  //This is the question provider, where most functionality for questions occur.
   constructor(public http: HttpClient) {
     console.log('Hello QuestionsProvider Provider');
 
