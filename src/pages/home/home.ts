@@ -67,6 +67,11 @@ export class HomePage {
   
   }
 
+  /**
+   * 
+   * @param prompt 
+   * Go to modal
+   */
   goToModal(prompt: Prompt) {
     setTimeout(() => {
       let modal = this.modalCtrl.create(QuestionModal, {prompt: prompt}, {
