@@ -2,7 +2,7 @@
 
 </ion-header>
 
-<ion-content class="noScrolling">
+<ion-content class="noScrollingm,.m">
     <p [class]="answer_class" *ngIf="!answered">{{prompt.answer}}</p>
     <p [class]="question_class" *ngIf="answered">{{prompt.question}} </p>
     <!-- <p>{{prompt.question}}</p> -->
@@ -10,3 +10,4 @@
             <ion-icon color="secondary" name="arrow-round-forward"></ion-icon>
     </button>
 </ion-content>
+    <!-- <p>{{prompt.question}}</p> -->
