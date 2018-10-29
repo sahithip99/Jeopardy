@@ -1,3 +1,4 @@
+//Daa model for the prompt
 export class Prompt {
     question: string = ""
     answer: string = ""
@@ -6,3 +7,4 @@ export class Prompt {
       this.answer = answer
     }
   }
+  

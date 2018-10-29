@@ -17,7 +17,7 @@ export class FlashCardComponent implements OnInit {
 
 
   flipped: boolean = false;
-  colors: Array<string> = ['#cfa4f3fa', 'red', 'green', 'orange', 'blue']
+  colors: Array<string> = ['#cfa4f3fa', 'red', 'green', 'orange', 'blue', '#9900cc']
   shadow: string;
 
   constructor() {
